@@ -1,0 +1,1 @@
+import{_ as n,c as s,o as a,a as t}from"./app.e615ee3d.js";const m='{"title":"Proxy","description":"","frontmatter":{},"headers":[{"level":3,"title":"Proxy","slug":"proxy"}],"relativePath":"nuxt3.md"}',p={},o=t("",5),e=[o];function c(u,l,i,k,r,g){return a(),s("div",null,e)}var x=n(p,[["render",c]]);export{m as __pageData,x as default};
