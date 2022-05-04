@@ -1,4 +1,4 @@
-import{_ as n,c as s,o as a,a as t}from"./app.5330ff9d.js";const v='{"title":"Proxy","description":"","frontmatter":{},"headers":[],"relativePath":"nuxt3.md"}',p={},o=t(`<h1 id="proxy" tabindex="-1">Proxy <a class="header-anchor" href="#proxy" aria-hidden="true">#</a></h1><div class="language-ts"><pre><code><span class="token comment">// /nuxt.config.ts</span>
+import{_ as n,c as s,o as a,a as t}from"./app.5330ff9d.js";const v='{"title":"Proxy","description":"","frontmatter":{},"headers":[{"level":2,"title":"Proxy","slug":"proxy"},{"level":2,"title":"Env","slug":"env"}],"relativePath":"nuxt3.md"}',p={},o=t(`<h2 id="proxy" tabindex="-1">Proxy <a class="header-anchor" href="#proxy" aria-hidden="true">#</a></h2><div class="language-ts"><pre><code><span class="token comment">// /nuxt.config.ts</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> defineNuxtConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;nuxt&#39;</span>
 <span class="token keyword">export</span> <span class="token function">defineNuxtConfig</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   vite<span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -58,7 +58,7 @@ import{_ as n,c as s,o as a,a as t}from"./app.5330ff9d.js";const v='{"title":"Pr
 
 <span class="token comment">// /.env</span>
 <span class="token constant">NUXT_BASE_API</span> <span class="token operator">=</span> <span class="token string">&#39;https://buubuu.tv&#39;</span>
-</code></pre></div><h1 id="env" tabindex="-1">Env <a class="header-anchor" href="#env" aria-hidden="true">#</a></h1><ul><li><p>install cross-env</p><div class="language-sh"><pre><code>pnpm install cross-env -D
+</code></pre></div><h2 id="env" tabindex="-1">Env <a class="header-anchor" href="#env" aria-hidden="true">#</a></h2><ul><li><p>install cross-env</p><div class="language-sh"><pre><code>pnpm install cross-env -D
 </code></pre></div></li><li><p>add .env files</p><div class="language-sh"><pre><code>#.env.development
 NODE_ENV: &#39;development&#39;
 NUXT_BASE_API: &#39;https://buubuu.tv&#39;
