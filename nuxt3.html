@@ -7,7 +7,7 @@
     <meta name="description" content="Just for record something">
     <link rel="stylesheet" href="/docs/assets/style.c3210e46.css">
     <link rel="modulepreload" href="/docs/assets/app.5330ff9d.js">
-    <link rel="modulepreload" href="/docs/assets/nuxt3.md.54c763ea.lean.js">
+    <link rel="modulepreload" href="/docs/assets/nuxt3.md.950ef40f.lean.js">
     
     <meta name="twitter:title" content="Proxy | Tosn Bolg">
   <meta property="og:title" content="Proxy | Tosn Bolg">
@@ -34,7 +34,7 @@
   <span class="token comment">// https://github.com/nuxt/framework/discussions/1223#discussioncomment-2584532</span>
   <span class="token keyword">const</span> ret <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">useFetch</span><span class="token punctuation">(</span><span class="token string">&#39;http://localhost:3000/dev-api/api_v2/home&#39;</span><span class="token punctuation">)</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
-</code></pre></div><p>allways we can create a compossables to encapsulation <code>useFecth</code> as <code>useApi</code></p><div class="language-ts"><pre><code><span class="token comment">// /compossables/useApi.ts</span>
+</code></pre></div><p>allways we can create a compossables to encapsulation <code>useFecth</code> as <code>useApi</code></p><div class="language-ts"><pre><code><span class="token comment">// /composables/useApi.ts</span>
 <span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">useApi</span> <span class="token operator">=</span> <span class="token punctuation">(</span>url<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> options<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token keyword">public</span><span class="token operator">:</span> publicConfig <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useRuntimeConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   
@@ -126,7 +126,7 @@ NUXT_BASE_API: &#39;&#39;
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
 </code></pre></div></li></ul></div></div><footer class="page-footer" data-v-7eddb2c4 data-v-07c132fc><div class="edit" data-v-07c132fc><div class="edit-link" data-v-07c132fc data-v-1ed99556><!----></div></div><div class="updated" data-v-07c132fc><!----></div></footer><div class="next-and-prev-link" data-v-7eddb2c4 data-v-38ede35f><div class="container" data-v-38ede35f><div class="prev" data-v-38ede35f><a class="link" href="/docs/" data-v-38ede35f><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-prev" data-v-38ede35f><path d="M19,11H7.4l5.3-5.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-7,7c-0.1,0.1-0.2,0.2-0.2,0.3c-0.1,0.2-0.1,0.5,0,0.8c0.1,0.1,0.1,0.2,0.2,0.3l7,7c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L7.4,13H19c0.6,0,1-0.4,1-1S19.6,11,19,11z"></path></svg><span class="text" data-v-38ede35f>Home</span></a></div><div class="next" data-v-38ede35f><!----></div></div></div><!--[--><!--]--></div></main></div><!----><!--]--></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"cbd26873\",\"nuxt3.md\":\"54c763ea\"}")</script>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"cbd26873\",\"nuxt3.md\":\"950ef40f\"}")</script>
     <script type="module" async src="/docs/assets/app.5330ff9d.js"></script>
     
   </body>
