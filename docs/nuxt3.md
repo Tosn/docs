@@ -30,7 +30,7 @@ export defineNuxtConfig ({
 allways we can create a compossables to encapsulation  <code>useFecth</code>  as <code>useApi</code>
 
 ```ts
-// /compossables/useApi.ts
+// /composables/useApi.ts
 export const useApi = (url: string, options?: any) => {
   const { public: publicConfig } = useRuntimeConfig()
   
