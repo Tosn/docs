@@ -149,5 +149,60 @@ NUXT_BASE_API = 'https://buubuu.tv'
   
   ```
 
-  
+
+## Server
+
+### Api
+
+in server we will have no problem with cros, but how to use other server api, we can do it link this
+
+```ts
+// method: get
+// /server/api/home.ts  
+import { useQuery } from 'h3' // can help you to get params with request
+export default async (req, res) => {
+  return await $fetch('https://buubuu.tv/api_v2/home', { params: useQuery(req) })
+}
+
+// /pages/xx.vue  you can get the home result with useFetch
+const home = await useFetch('/api/home', { params: { name: 'TT' } })
+
+// method: post
+// /server/api/recommend.post.ts
+import { useBody } from 'h3' // can help you to get body with request
+export default async (req, res) => {
+	return await $fetch('https://buubuu.tv/api_v2/recommend', { method: 'post', body: await useBody(req) }) // useBody need await
+}
+
+// /pages/xx.vue useFetch link this
+const recommend = await useFetch('/api/recommend', { method: 'post', body: { video_id: '625e278a29921b753332f1c3' } })
+
+```
+
+Always we can create a public function for $fetch with server
+
+```ts
+// /server/api/utils.ts
+const host = 'https://buubuu.tv/'
+import { useBody, useQuery } from 'h3'
+export const $post = async (url: string, req: any) => {
+  return await $fetch(`${host + url}`, { method: 'post', body: await useBody(req) })
+}
+
+export const $get = async (url: string, req: any) => {
+  return await $fetch(`${host + url}`, { params: useQuery(req) })
+}
+
+// then in other api we can import $post or $get to use
+
+// /server/api/home.ts
+import { $get } from './utils'
+export default async (req, res) => await $get('/api_v2/home', req)
+
+// /server/api/recommend.post.ts
+import { $post } from './utils'
+export default async (req, res) => await $post('/api_v2/recommend', req)
+```
+
+
 
