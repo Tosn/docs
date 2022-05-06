@@ -9,6 +9,10 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "serve": "vitepress serve docs"
+    "serve": "vitepress serve docs",
+    "deploy": "vitepress build docs && bash ./deploy.sh"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3"
   }
 }
