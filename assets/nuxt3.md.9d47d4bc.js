@@ -110,7 +110,7 @@ NUXT_BASE_API: &#39;&#39;
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-</code></pre></div></li></ul><h2 id="server" tabindex="-1">Server <a class="header-anchor" href="#server" aria-hidden="true">#</a></h2><h3 id="api" tabindex="-1">Api <a class="header-anchor" href="#api" aria-hidden="true">#</a></h3><p>in server we will have no problem with cros, but how to use other server api, we can do ti link this</p><div class="language-ts"><pre><code><span class="token comment">// method: get</span>
+</code></pre></div></li></ul><h2 id="server" tabindex="-1">Server <a class="header-anchor" href="#server" aria-hidden="true">#</a></h2><h3 id="api" tabindex="-1">Api <a class="header-anchor" href="#api" aria-hidden="true">#</a></h3><p>in server we will have no problem with cros, but how to use other server api, we can do it link this</p><div class="language-ts"><pre><code><span class="token comment">// method: get</span>
 <span class="token comment">// /server/api/home.ts  </span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> useQuery <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;h3&#39;</span> <span class="token comment">// can help you to get params with request</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
