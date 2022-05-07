@@ -1,4 +1,4 @@
-import{_ as n,c as s,o as a,a as t}from"./app.5330ff9d.js";const m='{"title":"Proxy","description":"","frontmatter":{},"headers":[{"level":2,"title":"Proxy","slug":"proxy"},{"level":2,"title":"Env","slug":"env"},{"level":2,"title":"Server","slug":"server"},{"level":3,"title":"Api","slug":"api"}],"relativePath":"nuxt3.md"}',p={},o=t(`<h2 id="proxy" tabindex="-1">Proxy <a class="header-anchor" href="#proxy" aria-hidden="true">#</a></h2><div class="language-ts"><pre><code><span class="token comment">// /nuxt.config.ts</span>
+import{_ as n,c as s,o as a,a as t}from"./app.5330ff9d.js";const m='{"title":"Proxy","description":"","frontmatter":{},"headers":[{"level":2,"title":"Proxy","slug":"proxy"},{"level":2,"title":"Env","slug":"env"},{"level":2,"title":"Server","slug":"server"},{"level":3,"title":"Api","slug":"api"},{"level":3,"title":"mongodb","slug":"mongodb"}],"relativePath":"nuxt3.md"}',p={},o=t(`<h2 id="proxy" tabindex="-1">Proxy <a class="header-anchor" href="#proxy" aria-hidden="true">#</a></h2><div class="language-ts"><pre><code><span class="token comment">// /nuxt.config.ts</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> defineNuxtConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;nuxt&#39;</span>
 <span class="token keyword">export</span> <span class="token function">defineNuxtConfig</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   vite<span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -150,4 +150,27 @@ NUXT_BASE_API: &#39;&#39;
 <span class="token comment">// /server/api/recommend.post.ts</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> $post <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;./utils&#39;</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">await</span> <span class="token function">$post</span><span class="token punctuation">(</span><span class="token string">&#39;/api_v2/recommend&#39;</span><span class="token punctuation">,</span> req<span class="token punctuation">)</span>
-</code></pre></div>`,13),e=[o];function c(u,l,i,k,r,d){return a(),s("div",null,e)}var v=n(p,[["render",c]]);export{m as __pageData,v as default};
+</code></pre></div><h3 id="mongodb" tabindex="-1">mongodb <a class="header-anchor" href="#mongodb" aria-hidden="true">#</a></h3><div class="language-ts"><pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> MongoClient <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;mongodb&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// console.log(&#39;db&#39;, MongoClient)</span>
+<span class="token keyword">const</span> uri <span class="token operator">=</span> <span class="token string">&#39;mongodb://localhost:27017/quiz&#39;</span>
+
+<span class="token keyword">const</span> client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MongoClient</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span>
+
+<span class="token comment">// console.log(&#39;client&#39;, client)</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">run</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> client<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">const</span> quiz <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">db</span><span class="token punctuation">(</span><span class="token string">&#39;quiz&#39;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">collection</span><span class="token punctuation">(</span><span class="token string">&#39;quiz&#39;</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">const</span> ret <span class="token operator">=</span> <span class="token keyword">await</span> quiz<span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;ret&#39;</span><span class="token punctuation">,</span> ret<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> client<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token builtin">console</span><span class="token punctuation">.</span>dir<span class="token punctuation">)</span>
+</code></pre></div>`,15),e=[o];function c(u,l,i,k,r,d){return a(),s("div",null,e)}var y=n(p,[["render",c]]);export{m as __pageData,y as default};
