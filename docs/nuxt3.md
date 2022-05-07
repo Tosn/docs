@@ -204,5 +204,31 @@ import { $post } from './utils'
 export default async (req, res) => await $post('/api_v2/recommend', req)
 ```
 
+### mongodb
 
+```ts
+import { MongoClient } from "mongodb";
+
+// console.log('db', MongoClient)
+const uri = 'mongodb://localhost:27017/quiz'
+
+const client = new MongoClient(uri)
+
+// console.log('client', client)
+async function run () {
+  try {
+    await client.connect()
+
+    const quiz = client.db('quiz').collection('quiz')
+
+    const ret = await quiz.findOne()
+
+    console.log('ret', ret)
+  } finally {
+    await client.close()
+  }
+}
+
+run().catch(console.dir)
+```
 
