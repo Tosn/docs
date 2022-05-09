@@ -1,3 +1,18 @@
+## Error handing
+
+create a file as error.vue under the root directory, example:
+
+```vue
+<!-- error.vue -->
+<template>
+	<div>
+  	The page is not found, go to Home  
+  </div>
+</template>
+```
+
+
+
 ## Proxy
 
 ```ts
@@ -230,5 +245,57 @@ async function run () {
 }
 
 run().catch(console.dir)
+```
+
+### mongodb with server api
+
+```ts
+// /server/api/model/db.ts
+import { MongoClient } from "mongodb";
+
+// console.log('db', MongoClient)
+const uri = 'mongodb://localhost:27017/quiz'
+
+const client = new MongoClient(uri)
+async function run () {
+  await client.connect()
+  return client.db('quiz').collection('quiz')
+}
+
+const responseBox = (ret: any, error?: any) => {
+  if (ret) {
+    return {
+      code: 0,
+      msg: 'success',
+      data: ret
+    }
+  }
+
+  return {
+    code: -1,
+    error
+  }
+}
+
+export {
+  run,
+  responseBox
+}
+
+```
+
+```ts
+// /server/api/home/ts
+import { run, responseBox } from './model/db'
+import { useQuery } from 'h3'
+export default async (req, res) => {
+  const query = useQuery(req)
+  try {
+    const ret = await (await run()).findOne({ num: query.num })
+    return responseBox(ret)
+  } catch (error) {
+    return responseBox('', error)
+  }
+}
 ```
 
