@@ -1,4 +1,10 @@
-import{_ as n,c as s,o as a,a as t}from"./app.5330ff9d.js";const m='{"title":"Proxy","description":"","frontmatter":{},"headers":[{"level":2,"title":"Proxy","slug":"proxy"},{"level":2,"title":"Env","slug":"env"},{"level":2,"title":"Server","slug":"server"},{"level":3,"title":"Api","slug":"api"},{"level":3,"title":"mongodb","slug":"mongodb"}],"relativePath":"nuxt3.md"}',p={},o=t(`<h2 id="proxy" tabindex="-1">Proxy <a class="header-anchor" href="#proxy" aria-hidden="true">#</a></h2><div class="language-ts"><pre><code><span class="token comment">// /nuxt.config.ts</span>
+import{_ as n,c as s,o as a,a as t}from"./app.5330ff9d.js";const m='{"title":"Error handing","description":"","frontmatter":{},"headers":[{"level":2,"title":"Error handing","slug":"error-handing"},{"level":2,"title":"Proxy","slug":"proxy"},{"level":2,"title":"Env","slug":"env"},{"level":2,"title":"Server","slug":"server"},{"level":3,"title":"Api","slug":"api"},{"level":3,"title":"mongodb","slug":"mongodb"},{"level":3,"title":"mongodb with server api","slug":"mongodb-with-server-api"}],"relativePath":"nuxt3.md"}',p={},o=t(`<h2 id="error-handing" tabindex="-1">Error handing <a class="header-anchor" href="#error-handing" aria-hidden="true">#</a></h2><p>create a file as error.vue under the root directory, example:</p><div class="language-vue"><pre><code><span class="token comment">&lt;!-- error.vue --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+  	The page is not found, go to Home  
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="proxy" tabindex="-1">Proxy <a class="header-anchor" href="#proxy" aria-hidden="true">#</a></h2><div class="language-ts"><pre><code><span class="token comment">// /nuxt.config.ts</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> defineNuxtConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;nuxt&#39;</span>
 <span class="token keyword">export</span> <span class="token function">defineNuxtConfig</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   vite<span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -173,4 +179,48 @@ NUXT_BASE_API: &#39;&#39;
 <span class="token punctuation">}</span>
 
 <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token builtin">console</span><span class="token punctuation">.</span>dir<span class="token punctuation">)</span>
-</code></pre></div>`,15),e=[o];function c(u,l,i,k,r,d){return a(),s("div",null,e)}var y=n(p,[["render",c]]);export{m as __pageData,y as default};
+</code></pre></div><h3 id="mongodb-with-server-api" tabindex="-1">mongodb with server api <a class="header-anchor" href="#mongodb-with-server-api" aria-hidden="true">#</a></h3><div class="language-ts"><pre><code><span class="token comment">// /server/api/model/db.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> MongoClient <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;mongodb&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// console.log(&#39;db&#39;, MongoClient)</span>
+<span class="token keyword">const</span> uri <span class="token operator">=</span> <span class="token string">&#39;mongodb://localhost:27017/quiz&#39;</span>
+
+<span class="token keyword">const</span> client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MongoClient</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">run</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">await</span> client<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> client<span class="token punctuation">.</span><span class="token function">db</span><span class="token punctuation">(</span><span class="token string">&#39;quiz&#39;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">collection</span><span class="token punctuation">(</span><span class="token string">&#39;quiz&#39;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">responseBox</span> <span class="token operator">=</span> <span class="token punctuation">(</span>ret<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> error<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>ret<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      code<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      msg<span class="token operator">:</span> <span class="token string">&#39;success&#39;</span><span class="token punctuation">,</span>
+      data<span class="token operator">:</span> ret
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    code<span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    error
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span>
+  run<span class="token punctuation">,</span>
+  responseBox
+<span class="token punctuation">}</span>
+
+</code></pre></div><div class="language-ts"><pre><code><span class="token comment">// /server/api/home/ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> run<span class="token punctuation">,</span> responseBox <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;./model/db&#39;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useQuery <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;h3&#39;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> query <span class="token operator">=</span> <span class="token function">useQuery</span><span class="token punctuation">(</span>req<span class="token punctuation">)</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> ret <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">await</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">{</span> num<span class="token operator">:</span> query<span class="token punctuation">.</span>num <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token function">responseBox</span><span class="token punctuation">(</span>ret<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">responseBox</span><span class="token punctuation">(</span><span class="token string">&#39;&#39;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div>`,21),e=[o];function c(u,l,k,i,r,d){return a(),s("div",null,e)}var y=n(p,[["render",c]]);export{m as __pageData,y as default};
