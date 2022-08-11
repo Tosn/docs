@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数字格式化语法 | Tosn Bolg</title>
+    <meta name="description" content="Just for record something">
+    <link rel="stylesheet" href="/docs/assets/style.c3210e46.css">
+    <link rel="modulepreload" href="/docs/assets/app.5330ff9d.js">
+    <link rel="modulepreload" href="/docs/assets/Python3.md.86044270.lean.js">
+    
+    <meta name="twitter:title" content="数字格式化语法 | Tosn Bolg">
+  <meta property="og:title" content="数字格式化语法 | Tosn Bolg">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme"><header class="nav-bar" data-v-675d8756><div class="sidebar-button" data-v-675d8756><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div><a class="nav-bar-title" href="/docs/" aria-label="Tosn Bolg, back to home" data-v-675d8756 data-v-cc01ef16><!----> Tosn Bolg</a><div class="flex-grow" data-v-675d8756></div><div class="nav" data-v-675d8756><nav class="nav-links" data-v-675d8756 data-v-eab3edfe><!--[--><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/docs/" data-v-b8818f8c>Home <!----></a></div></div><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/docs/nuxt3" data-v-b8818f8c>Nuxt3 <!----></a></div></div><!--]--><!----><!----></nav></div><!--[--><!--]--></header><aside class="sidebar" data-v-83e92a68><nav class="nav-links nav" data-v-83e92a68 data-v-eab3edfe><!--[--><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/docs/" data-v-b8818f8c>Home <!----></a></div></div><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/docs/nuxt3" data-v-b8818f8c>Nuxt3 <!----></a></div></div><!--]--><!----><!----></nav><!--[--><!--]--><ul class="sidebar-links" data-v-83e92a68><!--[--><li class="sidebar-link"><a class="sidebar-link-item" href="/docs/">Home</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/docs/nuxt3">Nuxt3</a><!----></li><!--]--></ul><!--[--><!--]--></aside><div class="sidebar-mask"></div><main class="page" data-v-7eddb2c4><div class="container" data-v-7eddb2c4><!--[--><!--]--><div style="position:relative;" class="content" data-v-7eddb2c4><div><h3 id="数字格式化语法" tabindex="-1">数字格式化语法 <a class="header-anchor" href="#数字格式化语法" aria-hidden="true">#</a></h3><div class="language-py"><pre><code>f <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">&#39;请输入华氏温度: &#39;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+c <span class="token operator">=</span> <span class="token punctuation">(</span>f <span class="token operator">-</span> <span class="token number">32</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1.8</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;%.1f华氏度 = %.1f摄氏度&#39;</span> <span class="token operator">%</span> <span class="token punctuation">(</span>f<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># or</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f&#39;</span><span class="token interpolation"><span class="token punctuation">{</span>f<span class="token punctuation">:</span><span class="token format-spec">.1f</span><span class="token punctuation">}</span></span><span class="token string">华氏度 = </span><span class="token interpolation"><span class="token punctuation">{</span>c<span class="token punctuation">:</span><span class="token format-spec">.1f</span><span class="token punctuation">}</span></span><span class="token string">摄氏度&#39;</span></span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="class" tabindex="-1">class <a class="header-anchor" href="#class" aria-hidden="true">#</a></h3><p>getter setter 装饰器</p><div class="language-python"><pre><code><span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		self<span class="token punctuation">.</span>_name <span class="token operator">=</span> name
+		self<span class="token punctuation">.</span>_age <span class="token operator">=</span> age
+	
+	<span class="token decorator annotation punctuation">@property</span>
+	<span class="token keyword">def</span> <span class="token function">name</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">return</span> self<span class="token punctuation">.</span>_name
+	
+	<span class="token decorator annotation punctuation">@property</span>
+	<span class="token keyword">def</span> <span class="token function">age</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">return</span> self<span class="token punctuation">.</span>_age
+	
+	<span class="token decorator annotation punctuation">@age<span class="token punctuation">.</span>setter</span>
+	<span class="token keyword">def</span> <span class="token function">age</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		self<span class="token punctuation">.</span>_age <span class="token operator">=</span> age
+	
+	<span class="token keyword">def</span> <span class="token function">play</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">if</span> self<span class="token punctuation">.</span>_age <span class="token operator">&lt;=</span> <span class="token number">16</span><span class="token punctuation">:</span>
+			<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f&#39;</span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>_name<span class="token punctuation">}</span></span><span class="token string">正在玩飞行棋&#39;</span></span><span class="token punctuation">)</span>
+		<span class="token keyword">else</span><span class="token punctuation">:</span>
+			<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f&#39;</span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>_name<span class="token punctuation">}</span></span><span class="token string">正在打麻将&#39;</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	person <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">&#39;Tosn&#39;</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span>
+	person<span class="token punctuation">.</span>play<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	person<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">22</span>
+	person<span class="token punctuation">.</span>play<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">&#39;__main__&#39;</span><span class="token punctuation">:</span>
+	main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="文件" tabindex="-1">文件 <a class="header-anchor" href="#文件" aria-hidden="true">#</a></h3><p>open</p><table><thead><tr><th>操作模式</th><th>具体含义</th></tr></thead><tbody><tr><td><code>&#39;r&#39;</code></td><td>读取 （默认）</td></tr><tr><td><code>&#39;w&#39;</code></td><td>写入（会先截断之前的内容）</td></tr><tr><td><code>&#39;x&#39;</code></td><td>写入，如果文件已经存在会产生异常</td></tr><tr><td><code>&#39;a&#39;</code></td><td>追加，将内容写入到已有文件的末尾</td></tr><tr><td><code>&#39;b&#39;</code></td><td>二进制模式</td></tr><tr><td><code>&#39;t&#39;</code></td><td>文本模式（默认）</td></tr><tr><td><code>&#39;+&#39;</code></td><td>更新（既可以读又可以写）</td></tr></tbody></table><p>下面这张图来自于<a href="http://www.runoob.com" target="_blank" rel="noopener noreferrer">菜鸟教程</a>网站，它展示了如果根据应用程序的需要来设置操作模式。</p><p><img src="https://raw.githubusercontent.com/jackfrued/Python-100-Days/master/Day01-15/res/file-open-mode.png" alt=""></p></div></div><footer class="page-footer" data-v-7eddb2c4 data-v-07c132fc><div class="edit" data-v-07c132fc><div class="edit-link" data-v-07c132fc data-v-1ed99556><!----></div></div><div class="updated" data-v-07c132fc><!----></div></footer><!----><!--[--><!--]--></div></main></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"python3.md\":\"86044270\",\"flutter.md\":\"c29f82ff\",\"index.md\":\"cbd26873\",\"nuxt3.md\":\"246c8f15\"}")</script>
+    <script type="module" async src="/docs/assets/app.5330ff9d.js"></script>
+    
+  </body>
+</html>
