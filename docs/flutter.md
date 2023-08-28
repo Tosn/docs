@@ -131,3 +131,100 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
+
+### Router
+
+Use [go-router](https://pub.dev/packages/go_router)
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('First Screen')
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            GoRouter.of(context).go('/second'); /// also you can use context.go('/second')
+          },
+          child: const Text('Launch screen')
+        )
+      )
+    );
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Second Screen')
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            context.go('/'); // just like GoRouter.of(context).go('/')
+          },
+          child: const Text('Go back!')
+        )
+      )
+    );
+  }
+}
+
+void main(List<String> args) {
+  runApp(
+    App()
+  );
+}
+
+class App extends StatelessWidget {
+  App({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routerConfig: _router,
+      title: 'GoRouter Example'
+    );
+  }
+
+  final GoRouter _router = GoRouter(
+    routes: <GoRoute>[
+      GoRoute(
+        path: '/',
+        builder: (context, state)  => const FirstScreen()
+      ),
+      GoRoute(
+        path: '/second',
+        builder: (context, state) => const SecondScreen()
+      )
+    ]
+  );
+}
+```
+
+Flutter 提供2中url模式 hash 和 path  https://docs.flutter.dev/development/ui/navigation/url-strategies
+
+```dart
+/// default is hash
+/// for use path mode need todo:
+/// To configure Flutter to use the path instead, use the usePathUrlStrategy function provided by the flutter_web_plugins library in the SDK:
+import 'package:flutter_web_plugins/url_strategy.dart';
+
+void main () {
+  usePathUrlStrategy();
+  runApp(xxx)
+}
+```
+
