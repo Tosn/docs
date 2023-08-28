@@ -1,8 +1,7 @@
 module.exports = {
   title: 'Tosn Bolg',
   description: 'Just for record something',
-  base: './',
-  // base: '/docs', // to github need, to personal blog remove
+  base: '/docs', // to github need, to personal blog remove
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
